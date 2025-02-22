@@ -6,7 +6,7 @@
 [![Go report](https://goreportcard.com/badge/github.com/enbility/eebus-go)](https://goreportcard.com/report/github.com/enbility/eebus-go)
 [![CodeFactor](https://www.codefactor.io/repository/github/enbility/eebus-go/badge)](https://www.codefactor.io/repository/github/enbility/eebus-go)
 
-This eebus-go controlbox simulator provides a foundation for implementing [EEBUS](https://eebus.org) use cases in [go](https://golang.org). It uses the [eebus-go](https://github.com/enbility/eebus-go) library, the SHIP implementation [ship-go](https://github.com/enbility/ship-go) and the SPINE implementation [spine-go](https://github.com/enbility/spine-go).
+This eebus-go controlbox simulator app provides a foundation for implementing [EEBUS](https://eebus.org) use cases in [go](https://golang.org). It uses the [eebus-go](https://github.com/enbility/eebus-go) library, the SHIP implementation [ship-go](https://github.com/enbility/ship-go) and the SPINE implementation [spine-go](https://github.com/enbility/spine-go).
 Basic understanding of the EEBUS concepts SHIP and SPINE to use this library is required. Please check the corresponding specifications on the [EEBUS downloads website](https://www.eebus.org/media-downloads/).
 
 ## Introduction
@@ -28,15 +28,13 @@ Via the usage of [eebus-go](https://github.com/enbility/eebus-go) library:
 - `service`: central package which provides access to SHIP and SPINE. Use this to create the EEBUS service, its configuration and connect to remote EEBUS services
 - `usecases`: containing actor and use case based implementations with use case scenario based APIs and events
 
-## Simulator App
+## Simulator App and Web Frontend
 
-A user friendly Web UI.
+Example code for sending an LPC and LPP limit 5 seconds after connecting to a compatible device that can receive LPC and LPP limits and a user friendly Web UI to manually simulate power limitation requests.
 
 ## Notes
 
 This eebus-go controlbox simulator example do **not** provide complete implementations of any use case, but is intended as usage guidelines for the eebus-go stack in general and to have a quick demo inculding a user friendly Web UI.
-
-This example includes code for sending an LPC and LPP limit 5 seconds after connecting to a compatible device that can receive LPC and LPP limits.
 
 ## First Steps
 
