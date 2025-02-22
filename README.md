@@ -32,6 +32,8 @@ Via the usage of [eebus-go](https://github.com/enbility/eebus-go) library:
 
 Example code for sending an LPC and LPP limit 5 seconds after connecting to a compatible device that can receive LPC and LPP limits and a user friendly Web UI to manually simulate power limitation requests.
 
+![Frontend](docs/pictures/frontend.png)
+
 ## Notes
 
 This eebus-go controlbox simulator example do **not** provide complete implementations of any use case, but is intended as usage guidelines for the eebus-go stack in general and to have a quick demo inculding a user friendly Web UI.
