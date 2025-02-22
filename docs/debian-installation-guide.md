@@ -1,27 +1,46 @@
-bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/debian.sh)"
+# Debian 12 Installation Guide
 
-192.168.178.192
+## Create a new PROXMOX VE Debian 12 LXC
 
-adduser <username>
-usermod -aG sudo <username>
+[Proxmox VE Helper-Script](https://community-scripts.github.io/ProxmoxVE/scripts?id=debian):
 
-sudo apt-get update && apt-get upgrade -y
+`bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/debian.sh)"`
 
-sudo apt install task-gnome-desktop
+## Setup of fresh installed LXC
 
-apt install xrdp -y
-systemctl enable --now xrdp
+`Login` into the new LXC.
 
-sudo apt install nodejs -y
-sudo apt install npm -y
+`sudo apt-get update && apt-get upgrade -y`
 
-node -v
-npm -v
+## Install NodeJS and NPM
 
+`sudo apt install nodejs -y`
+`sudo apt install npm -y`
 
-Download 'go' and 'eebus-go-simulators' to /root
+`node -v`
+`npm -v`
 
-wget https://golang.org/dl/go1.23.6.linux-amd64.tar.gz
+## Install GO
+
+Download `GO`
+
+`wget https://golang.org/dl/go1.23.6.linux-amd64.tar.gz`
+`rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz`
+
+nano .profile
+
+`export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin`
+
+`source ~/.profile`
+
+`go version`
+
+## Install App
+
+Download 'eebus-go-simulators' to /root
+
 wget https://github.com/meisel2000/eebus-cbsim/archive/refs/heads/main.zip
 
 wget https://github.com/vollautomat/eebus-go/archive/refs/heads/simulators.zip
@@ -29,17 +48,6 @@ wget https://github.com/vollautomat/eebus-go/archive/refs/heads/simulators.zip
 mv main.zip eebus-cbsim.zip
 
 rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz
-
-
-nano .profile
-
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-source ~/.profile
-
-go version
 
 unzip eebus-go-simulators.zip
 
