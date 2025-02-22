@@ -1,6 +1,6 @@
 # Debian 12 Installation Guide
 
-## Create a new PROXMOX VE Debian 12 LXC
+## Create a new PROXMOX VE Debian 12 Unprivileged 	LXC
 
 [Proxmox VE Helper-Script](https://community-scripts.github.io/ProxmoxVE/scripts?id=debian):
 
@@ -15,9 +15,11 @@
 ## Install NodeJS and NPM
 
 `sudo apt install nodejs -y`
+
 `sudo apt install npm -y`
 
 `node -v`
+
 `npm -v`
 
 ## Install GO
