@@ -30,13 +30,13 @@ Via the usage of [eebus-go](https://github.com/enbility/eebus-go) library:
 
 ## Simulator App and Web Frontend
 
-Example code for sending an LPC and LPP limit 5 seconds after connecting to a compatible device that can receive LPC and LPP limits and a user friendly Web UI to manually simulate power limitation requests.
+Example code for sending an LPC and LPP limit 5 seconds after connecting to a compatible device that can receive LPC and LPP limits and a user friendly Web UI to manually simulate consumption and production power limitation requests.
 
 ![Frontend](docs/pictures/frontend.png)
 
 ## Notes
 
-This eebus-go controlbox simulator example do **not** provide complete implementations of any use case, but is intended as usage guidelines for the eebus-go stack in general and to have a quick demo inculding a user friendly Web UI.
+This eebus-go controlbox simulator example do **not** provide complete implementations of any use case, but is intended as usage guidelines for the eebus-go stack in general and to have a quick demo.
 
 ## First Steps
 
@@ -45,6 +45,8 @@ This eebus-go controlbox simulator example do **not** provide complete implement
 - Download the source code of this repository
 - Run npm install inside the root repository folder
 - Now follow either the `Development` or `Build binary` steps
+
+For a Linux setup follow this [debian installation guide](./docs/debian-installation-guide.md).
 
 ## Development
 
