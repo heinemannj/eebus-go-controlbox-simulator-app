@@ -27,6 +27,7 @@
 Download `GO`
 
 `wget https://golang.org/dl/go1.23.6.linux-amd64.tar.gz`
+
 `rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz`
 
 nano .profile
