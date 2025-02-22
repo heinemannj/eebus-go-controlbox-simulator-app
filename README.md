@@ -38,6 +38,8 @@ Example code for sending an LPC and LPP limit 5 seconds after connecting to a co
 
 This eebus-go controlbox simulator example do **not** provide complete implementations of any use case, but is intended as usage guidelines for the eebus-go stack in general and to have a quick demo.
 
+Used [server ports](docs/server-ports.md) for various eebus related parts.
+
 ## First Steps
 
 - Download and install [golang](https://go.dev/) for your computer
@@ -46,7 +48,7 @@ This eebus-go controlbox simulator example do **not** provide complete implement
 - Run npm install inside the root repository folder
 - Now follow either the `Development` or `Build binary` steps
 
-For a Linux setup follow this [debian installation guide](./docs/debian-installation-guide.md).
+For a Linux setup follow this [debian installation guide](docs/debian-installation-guide.md).
 
 ## Development
 
