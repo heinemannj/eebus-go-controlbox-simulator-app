@@ -1,0 +1,9 @@
+*.DS_Store
+/crt
+/key
+*.crt
+*.key
+/package-lock.json
+/dist
+/node_modules
+eebus-go-controlbox

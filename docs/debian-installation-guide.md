@@ -12,6 +12,14 @@
 
 `sudo apt-get update && apt-get upgrade -y`
 
+## Install syslog-ng
+
+`sudo apt-get install syslog-ng -y`
+
+`sudo systemctl enable --now syslog-ng`
+
+`sudo systemctl daemon-reload`
+
 ## Install NodeJS and NPM
 
 `sudo apt install nodejs -y`
@@ -42,25 +50,17 @@ export PATH=$PATH:$GOPATH/bin`
 
 ## Install App
 
-Download 'eebus-go-simulators' to /root
+`cd /opt`
 
-wget https://github.com/meisel2000/eebus-cbsim/archive/refs/heads/main.zip
+`wget https://github.com/vollautomat/eebus-go/archive/refs/heads/simulators.zip`
 
-wget https://github.com/vollautomat/eebus-go/archive/refs/heads/simulators.zip
+`mv main.zip eebus-go-apps.zip`
 
-mv main.zip eebus-cbsim.zip
+`unzip eebus-go-apps.zip`
 
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz
+`cd ./eebus-go-apps/apps/controlbox`
 
-unzip eebus-go-simulators.zip
-
-cd /root/eebus-go-simulators/examples/controlbox
-
-pwd
-/root/eebus-go-simulators/examples/controlbox
-
-
-go run main.go 8181
+`go run main.go 4713`
 
 -----BEGIN CERTIFICATE-----
 MIIBxTCCAWugAwIBAgIRAUOdmAoF86StsXOkRLkhcRwwCgYIKoZIzj0EAwIwQjEL
@@ -84,22 +84,30 @@ qjczujIcP1J9mB+4Mx5MOve82yjCxWVuWQ==
 
 
 
-nano eebus.crt
+`nano eebus-go-controlbox.crt`
 
-nano eebus.key
+`nano eebus-go-controlbox.key`
 
-go build
+`go build`
+
+`sudo cp eebus-go-controlbox /usr/local/bin`
+
+`sudo mkdir -p /etc/ssl/localcerts`
+
+`sudo cp eebus-go-controlbox.crt /etc/ssl/localcerts`
+
+`sudo cp eebus-go-controlbox.key /etc/ssl/private`
 
 EVCC:
 
-go run main.go 8181 30787eb7247d335e13bca8eb1bdb828589ef0b24 ./eebus.crt ./eebus.key
+go run main.go 4713 30787eb7247d335e13bca8eb1bdb828589ef0b24 ./eebus-go-controlbox.crt ./eebus-go-controlbox.key
 
 Vaillant:
-go run main.go 8181 e335bfd6fb29800d3884d6eea2370d6f79aaa24b /root/eebus-go-simulators/examples/controlbox/eebus.crt /root/eebus-go-simulators/examples/controlbox/eebus.key
+go run main.go 4713 e335bfd6fb29800d3884d6eea2370d6f79aaa24b ./eebus-go-controlbox.crt ./eebus-go-controlbox.key
 
 
 
-journalctl -f -u eebus-controlbox.service
+
 
 
 
@@ -127,8 +135,32 @@ FznDp+OLpgbTOf28VbcRusfvuQWA1jjUyw==
 
 go run main.go 4714 1d62acc78f3b713dfcf2c9a22c85feb53d526f9c ./eebus.crt ./eebus.key
 
+## Configure systemd
 
-apt-get install libpaho-mqtt1.3
-apt-get install syslog-ng
-systemctl enable --now syslog-ng
-systemctl daemon-reload
+`cp -r /opt/eebus-go-apps/docs/debian/systemd/* /usr/lib/systemd/system`
+
+`sudo systemctl daemon-reload`
+
+`sudo systemctl enable --now eebus-go-controlbox.service`
+
+`sudo systemctl enable --now eebus-go-controlbox-app.service`
+
+`sudo systemctl daemon-reload`
+
+
+`journalctl -f -u eebus-go-controlbox.service`
+
+## Configure syslog-ng
+
+`cp -r /opt/eebus-go-apps/docs/debian/syslog-ng/conf.d /etc/syslog-ng`
+
+`systemctl restart syslog-ng.service`
+`systemctl status syslog-ng.service`
+
+## Reboot
+
+`reboot`
+
+`sudo systemctl status eebus-go-controlbox.service`
+
+`sudo systemctl status eebus-go-controlbox-app.service`
