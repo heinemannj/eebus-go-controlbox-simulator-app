@@ -48,7 +48,7 @@ export PATH=$PATH:$GOPATH/bin`
 
 `go version`
 
-## Install App
+## Install Controlbox App
 
 `cd /opt`
 
@@ -134,6 +134,43 @@ FznDp+OLpgbTOf28VbcRusfvuQWA1jjUyw==
 
 
 go run main.go 4714 1d62acc78f3b713dfcf2c9a22c85feb53d526f9c ./eebus.crt ./eebus.key
+
+## Install HEMS App
+
+go run main.go 4714
+
+-----BEGIN CERTIFICATE-----
+MIIBzjCCAXOgAwIBAgIRAqlBDHuv4B2BHmeKRtIg9V0wCgYIKoZIzj0EAwIwRjEL
+MAkGA1UEBhMCREUxETAPBgNVBAoTCEVFQlVTLUdPMQ0wCwYDVQQLEwRIRU1TMRUw
+EwYDVQQDEwxIRU1TLVVuaXQtMDEwHhcNMjUwMjIzMTMwNTI2WhcNMzUwMjIxMTMw
+NTI2WjBGMQswCQYDVQQGEwJERTERMA8GA1UEChMIRUVCVVMtR08xDTALBgNVBAsT
+BEhFTVMxFTATBgNVBAMTDEhFTVMtVW5pdC0wMTBZMBMGByqGSM49AgEGCCqGSM49
+AwEHA0IABAaHafllvDebZE3upJV7jYX++OyDX5CapzzhquvvDt9vqOMy73yDIabW
+cqjTwcwV4BVPDFA0p/FBLjC/HDWZsM2jQjBAMA4GA1UdDwEB/wQEAwIHgDAPBgNV
+HRMBAf8EBTADAQH/MB0GA1UdDgQWBBRN2wrNUb8+VE9s9MsJLgZdlkj4yjAKBggq
+hkjOPQQDAgNJADBGAiEA6PFlyV1wxaC2gC+UnguWQPCTc5HTqm3GtEeIYiNdrooC
+IQD1tM9BQkzh2r90+GeckZL8FdBvBSYiy/riq4mqQfpAjw==
+-----END CERTIFICATE-----
+
+-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIEd29sRwOgspimXNUIsYcIaLgrKRQlZ3NqnuCvgtqUPnoAoGCCqGSM49
+AwEHoUQDQgAEBodp+WW8N5tkTe6klXuNhf747INfkJqnPOGq6+8O32+o4zLvfIMh
+ptZyqNPBzBXgFU8MUDSn8UEuML8cNZmwzQ==
+-----END EC PRIVATE KEY-----
+
+2025-02-23 14:05:26 INFO  Local SKI: 4ddb0acd51bf3e544f6cf4cb092e065d9648f8ca
+
+`nano eebus-go-hems.crt`
+
+`nano eebus-go-hems.key`
+
+`go build`
+
+`sudo cp eebus-go-hems /usr/local/bin`
+
+`sudo cp eebus-go-hems.crt /etc/ssl/localcerts`
+
+`sudo cp eebus-go-hems.key /etc/ssl/private`
 
 ## Configure systemd
 
