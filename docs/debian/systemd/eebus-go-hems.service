@@ -11,8 +11,21 @@ StartLimitBurst=10
 
 [Service]
 AmbientCapabilities=CAP_NET_BIND_SERVICE
-ExecStart=/usr/local/bin/eebus-go-hems 4713 a567b5e063297729f79bc4d6b9e11aa4c076e091 /etc/ssl/localcerts/eebus-go-hems.crt /etc/ssl/private/eebus-go-hems.key
-#Environment="PATH=$PATH:/usr/local/go/bin"
+
+# Shared Env Vars
+Environment=BIN_FILE=/usr/local/bin/eebus-go-hems
+
+Environment=CERT=/etc/ssl/localcerts/eebus-go-hems.crt
+Environment=KEY=/etc/ssl/private/eebus-go-hems.key
+
+# Specific Env Vars
+Environment=PORT=4721
+Environment=REMOTE_SKI=99a4d0cad4654d2ef8fb0dff7b8ea0c6501bc6c5
+
+ExecStart=/usr/local/bin/eebus-go-controlbox $PORT $REMOTE_SKI $CERT $KEY
+ExecStop=kill -9 $MAINPID
+ExecReload=kill -HUP $MAINPID
+
 Restart=always
 RestartSec=10
 

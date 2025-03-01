@@ -11,8 +11,14 @@ StartLimitBurst=10
 
 [Service]
 AmbientCapabilities=CAP_NET_BIND_SERVICE
-ExecStart=/usr/bin/npm run dev --prefix /opt/eebus-go-apps/apps/controlbox
-#Environment="PATH=$PATH:/usr/local/go/bin"
+
+# Shared Env Vars
+Environment=PREFIX_DIR=/opt/eebus-go-apps/apps/controlbox
+
+ExecStart=/usr/bin/npm run dev --prefix $PREFIX_DIR
+ExecStop=kill -9 $MAINPID
+ExecReload=kill -HUP $MAINPID
+
 Restart=always
 RestartSec=10
 
