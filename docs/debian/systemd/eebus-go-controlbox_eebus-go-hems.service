@@ -1,8 +1,8 @@
-# eebus-go-controlbox_evcc.service
+# eebus-go-controlbox_eebus-go-hems.service
 #
 
 [Unit]
-Description=eebus-go-controlbox paired with evcc
+Description=eebus-go-controlbox paired with eebus-go-hems
 Requires=network-online.target
 After=syslog.target network.target network-online.target
 Wants=network-online.target
@@ -19,8 +19,8 @@ Environment=CERT=/etc/ssl/localcerts/eebus-go-controlbox.crt
 Environment=KEY=/etc/ssl/private/eebus-go-controlbox.key
 
 # Specific Env Vars
-Environment=PORT=4711
-Environment=REMOTE_SKI=30787eb7247d335e13bca8eb1bdb828589ef0b24
+Environment=PORT=4712
+Environment=REMOTE_SKI=4ddb0acd51bf3e544f6cf4cb092e065d9648f8ca
 
 ExecStart=/usr/local/bin/eebus-go-controlbox $PORT $REMOTE_SKI $CERT $KEY
 ExecStop=kill -9 $MAINPID
