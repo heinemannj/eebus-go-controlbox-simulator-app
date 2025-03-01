@@ -1,2 +1,9 @@
 /crt
 /key
+apps/hems/eebus-go-hems.key
+apps/hems/eebus-go-hems.crt
+apps/hems/eebus.crt
+apps/hems/eebus.crt
+apps/hems/eebus.key
+*.crt
+*.key
