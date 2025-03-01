@@ -22,12 +22,12 @@ Environment=KEY=/etc/ssl/private/eebus-go-hems.key
 Environment=PORT=4721
 Environment=REMOTE_SKI=99a4d0cad4654d2ef8fb0dff7b8ea0c6501bc6c5
 
-ExecStart=/usr/local/bin/eebus-go-controlbox $PORT $REMOTE_SKI $CERT $KEY
+ExecStart=/usr/local/bin/eebus-go-hems $PORT $REMOTE_SKI $CERT $KEY
 ExecStop=kill -9 $MAINPID
 ExecReload=kill -HUP $MAINPID
 
-Restart=always
-RestartSec=10
+#Restart=always
+#RestartSec=10
 
 User=root
 Group=root

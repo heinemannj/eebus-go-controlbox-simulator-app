@@ -181,7 +181,7 @@
     private socket: WebSocket | undefined;
   
     mounted() {
-      this.socket = new WebSocket( "ws://" + window.location.hostname + ":7070/ws" );
+      this.socket = new WebSocket( "ws://" + window.location.hostname + ":7812/ws" );
       console.log( "Attempting Connection..." );
 
       this.socket.onopen = () => {

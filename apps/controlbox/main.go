@@ -551,7 +551,7 @@ func (h *controlbox) printFormat(msgType, format string, args ...interface{}) {
 // web frontend
 
 const (
-	httpdPort int = 7070
+	httpdPort int = 7812
 )
 
 const (

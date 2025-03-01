@@ -11,10 +11,10 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
-    port: 7071,
+    port: 7712,
     host: true,
     proxy: {
-      "/ws": { target: "ws://localhost:7070", ws: true },
+      "/ws": { target: "ws://localhost:7812", ws: true },
     },
   },plugins: [vue()],
 })

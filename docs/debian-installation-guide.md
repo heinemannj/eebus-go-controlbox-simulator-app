@@ -90,6 +90,10 @@ qjczujIcP1J9mB+4Mx5MOve82yjCxWVuWQ==
 
 `go build`
 
+`make ui`
+
+`make build`
+
 `sudo cp eebus-go-controlbox /usr/local/bin`
 
 `sudo mkdir -p /etc/ssl/localcerts`
@@ -178,9 +182,13 @@ ptZyqNPBzBXgFU8MUDSn8UEuML8cNZmwzQ==
 
 `sudo systemctl daemon-reload`
 
-`sudo systemctl enable --now eebus-go-controlbox.service`
+`sudo systemctl enable --now eebus-go-controlbox_evcc.service`
+
+`sudo systemctl enable --now eebus-go-controlbox_eebus-go-hems.service`
 
 `sudo systemctl enable --now eebus-go-controlbox-app.service`
+
+`sudo systemctl enable --now eebus-go-hems.service`
 
 `sudo systemctl daemon-reload`
 

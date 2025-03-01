@@ -19,8 +19,8 @@ ExecStart=/usr/bin/npm run dev --prefix $PREFIX_DIR
 ExecStop=kill -9 $MAINPID
 ExecReload=kill -HUP $MAINPID
 
-Restart=always
-RestartSec=10
+#Restart=always
+#RestartSec=10
 
 User=root
 Group=root
