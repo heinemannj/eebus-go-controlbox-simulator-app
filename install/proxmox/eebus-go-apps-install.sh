@@ -14,7 +14,7 @@ network_check
 update_os
 
 msg_info "Installing Dependencies"
-$STD apt install -y \
+$STD apt-get install -y \
   curl \
   wget \
   unzip \
