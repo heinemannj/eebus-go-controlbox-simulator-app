@@ -49,7 +49,7 @@ msg_ok "Installed GO"
 
 msg_info "Installing eebus-go-apps"
 wget -q https://github.com/heinemannj/eebus-go-controlbox-simulator-app/archive/refs/heads/main.zip
-mv eebus-go-controlbox-simulator-app-main.zip eebus-go-apps.zip
+mv main.zip eebus-go-apps.zip
 unzip eebus-go-apps.zip
 msg_ok "Installed eebus-go-apps"
 
