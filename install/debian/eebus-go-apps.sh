@@ -20,6 +20,7 @@ color
 catch_errors
 
 function update_script() {
+  msg_info "xxx_update_script_xxx"
   header_info
   check_container_storage
   check_container_resources
