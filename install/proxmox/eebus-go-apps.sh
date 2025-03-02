@@ -33,6 +33,13 @@ function update_script() {
   $STD apt upgrade -y
 
   msg_ok "Updated Successfully"
+  
+  cat <<EOF >> ~/.profile
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+EOF
+  #$STD source ~/.profile
   exit
 }
 
