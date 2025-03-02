@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source <(curl -s https://raw.githubusercontent.com/heinemannj/eebus-go-controlbox-simulator-app/main/install/debian/build.func)
+source <(curl -s https://raw.githubusercontent.com/heinemannj/eebus-go-controlbox-simulator-app/main/install/proxmox/build.func)
 # Copyright (c) 2025 Joerg Heinemann
 # Author: heinemannj66@gmail.com
 # License: MIT | https://github.com/heinemannj/eebus-go-controlbox-simulator-app/raw/main/LICENSE
