@@ -51,6 +51,7 @@ msg_info "Installing eebus-go-apps"
 wget -q https://github.com/heinemannj/eebus-go-controlbox-simulator-app/archive/refs/heads/main.zip
 mv main.zip eebus-go-apps.zip
 unzip eebus-go-apps.zip
+mv eebus-go-controlbox-simulator-app-main eebus-go-apps
 msg_ok "Installed eebus-go-apps"
 
 # Configure systemd
