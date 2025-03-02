@@ -35,7 +35,7 @@ systemctl enable -q --now syslog-ng.service
 msg_ok "Installed syslog-ng"
 
 msg_info "Installing GO"
-$STD wget -q https://golang.org/dl/go1.23.6.linux-amd64.tar.gz
+wget -q https://golang.org/dl/go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /opt/go1.23.6.linux-amd64.tar.gz
 # `nano .profile`
@@ -49,9 +49,9 @@ msg_ok "Installed GO"
 
 msg_info "Installing eebus-go-apps"
 wget -q https://github.com/heinemannj/eebus-go-controlbox-simulator-app/archive/refs/heads/main.zip
-mv main.zip eebus-go-apps.zip
-unzip eebus-go-apps.zip
-mv eebus-go-controlbox-simulator-app-main eebus-go-apps
+$STD mv main.zip eebus-go-apps.zip
+$STD unzip eebus-go-apps.zip
+$STD mv eebus-go-controlbox-simulator-app-main eebus-go-apps
 msg_ok "Installed eebus-go-apps"
 
 # Configure systemd

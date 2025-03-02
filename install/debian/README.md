@@ -1,14 +1,4 @@
-# Debian 12 Installation Guide
-
-## Create a new PROXMOX VE Debian 12 Unprivileged 	LXC
-
-[Proxmox VE Helper-Script](https://community-scripts.github.io/ProxmoxVE/scripts?id=debian):
-
-`bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/debian.sh)"`
-
-`bash -c "$(wget -qLO - https://raw.githubusercontent.com/heinemannj/eebus-go-controlbox-simulator-app/main/install/debian/eebus-go-apps.sh)"`
-
-## Setup of fresh installed LXC
+# Use existing Debian 12 system
 
 `Login` into the new LXC.
 
