@@ -48,9 +48,9 @@ $STD rm -rf /opt/go1.23.6.linux-amd64.tar.gz
 msg_ok "Installed GO"
 
 msg_info "Installing eebus-go-apps"
-$STD wget -q https://github.com/heinemannj/eebus-go-controlbox-simulator-app/archive/refs/heads/main.zip
-$STD mv eebus-go-controlbox-simulator-app-main.zip eebus-go-apps.zip
-$STD unzip eebus-go-apps.zip
+wget -q https://github.com/heinemannj/eebus-go-controlbox-simulator-app/archive/refs/heads/main.zip
+mv eebus-go-controlbox-simulator-app-main.zip eebus-go-apps.zip
+unzip eebus-go-apps.zip
 msg_ok "Installed eebus-go-apps"
 
 # Configure systemd
