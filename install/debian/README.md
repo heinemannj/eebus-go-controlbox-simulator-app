@@ -6,15 +6,19 @@
 
 `bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/debian.sh)"`
 
+`bash -c "$(wget -qLO - https://raw.githubusercontent.com/heinemannj/eebus-go-controlbox-simulator-app/main/install/debian/eebus-go-apps.sh)"`
+
 ## Setup of fresh installed LXC
 
 `Login` into the new LXC.
 
-`sudo apt-get update && apt-get upgrade -y`
+`cd /opt`
+
+`sudo apt update && apt upgrade -y`
 
 ## Install syslog-ng
 
-`sudo apt-get install syslog-ng -y`
+`sudo apt install syslog-ng -y`
 
 `sudo systemctl enable --now syslog-ng`
 
@@ -32,7 +36,7 @@
 
 ## Install GO
 
-`wget https://golang.org/dl/go1.23.6.linux-amd64.tar.gz`
+`wget -q https://golang.org/dl/go1.23.6.linux-amd64.tar.gz`
 
 `rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz`
 
@@ -48,11 +52,9 @@ export PATH=$PATH:$GOPATH/bin`
 
 `go version`
 
-## Install Controlbox App
+## Install EEBus-Go Apps
 
-`cd /opt`
-
-`wget https://github.com/vollautomat/eebus-go/archive/refs/heads/simulators.zip`
+`wget -q https://github.com/vollautomat/eebus-go/archive/refs/heads/simulators.zip`
 
 `mv main.zip eebus-go-apps.zip`
 
@@ -178,7 +180,7 @@ ptZyqNPBzBXgFU8MUDSn8UEuML8cNZmwzQ==
 
 ## Configure systemd
 
-`cp -r /opt/eebus-go-apps/docs/debian/systemd/* /usr/lib/systemd/system`
+`cp -r /opt/eebus-go-apps/install/debian/systemd/* /usr/lib/systemd/system`
 
 `sudo systemctl daemon-reload`
 
@@ -192,12 +194,11 @@ ptZyqNPBzBXgFU8MUDSn8UEuML8cNZmwzQ==
 
 `sudo systemctl daemon-reload`
 
-
 `journalctl -f -u eebus-go-controlbox.service`
 
 ## Configure syslog-ng
 
-`cp -r /opt/eebus-go-apps/docs/debian/syslog-ng/conf.d /etc/syslog-ng`
+`cp -r /opt/eebus-go-apps/install/debian/syslog-ng/conf.d /etc/syslog-ng`
 
 `systemctl restart syslog-ng.service`
 `systemctl status syslog-ng.service`
