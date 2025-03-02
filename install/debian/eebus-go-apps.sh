@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source <(curl -s https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
+source <(curl -s https://raw.githubusercontent.com/heinemannj/eebus-go-controlbox-simulator-app/main/install/debian/build.func)
 # Copyright (c) 2025 Joerg Heinemann
 # Author: heinemannj66@gmail.com
 # License: MIT | https://github.com/heinemannj/eebus-go-controlbox-simulator-app/raw/main/LICENSE
@@ -20,7 +20,6 @@ color
 catch_errors
 
 function update_script() {
-  msg_info "xxx_update_script_xxx"
   header_info
   check_container_storage
   check_container_resources
@@ -30,49 +29,8 @@ function update_script() {
   #  fi
   msg_info "Updating eebus-go-apps LXC"
 
-  ##$STD cd /opt
-
-  ##$STD apt update -y
-  ##$STD apt upgrade -y
-
-  # Install syslog-ng
-  ##$STD apt install syslog-ng -y
-  # $STD systemctl daemon-reload
-  # $STD systemctl enable --now syslog-ng
-
-  # Install NodeJS and NPM
-  ##$STD apt install nodejs -y
-  ##$STD apt install npm -y
-
-  # Install GO
-  ##$STD wget -q https://golang.org/dl/go1.23.6.linux-amd64.tar.gz
-  ##$STD rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz
-  ##$STD rm -rf /opt/go1.23.6.linux-amd64.tar.gz
-
-  # `nano .profile`
-  # `export PATH=$PATH:/usr/local/go/bin
-  #
-  # export GOPATH=$HOME/go
-  # export PATH=$PATH:$GOPATH/bin`
-  #
-  #`source ~/.profile`
-
-  # Install EEBUS-Go Apps
-  ##$STD wget -q https://github.com/heinemannj/eebus-go-controlbox-simulator-app/archive/refs/heads/main.zip
-  ##$STD mv eebus-go-controlbox-simulator-app-main.zip eebus-go-apps.zip
-  ##$STD unzip eebus-go-apps.zip
-
-  # Configure systemd
-  ##$STD cp -r /opt/eebus-go-apps/install/debian/systemd/* /usr/lib/systemd/system
-  #$STD systemctl daemon-reload
-  #$STD systemctl enable --now eebus-go-controlbox_evcc.service
-  #$STD systemctl enable --now eebus-go-controlbox_eebus-go-hems.service
-  #$STD systemctl enable --now eebus-go-controlbox-app.service
-  #$STD systemctl enable --now eebus-go-hems.service
-  #$STD systemctl daemon-reload
-
-  # Configure syslog-ng
-  ##$STD cp -r /opt/eebus-go-apps/install/debian/syslog-ng/conf.d /etc/syslog-ng
+  $STD apt update -y
+  $STD apt upgrade -y
 
   msg_ok "Updated Successfully"
   exit
