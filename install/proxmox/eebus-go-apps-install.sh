@@ -38,13 +38,12 @@ msg_info "Installing GO"
 wget -q https://golang.org/dl/go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /opt/go1.23.6.linux-amd64.tar.gz
-# `nano .profile`
-# `export PATH=$PATH:/usr/local/go/bin
-#
-# export GOPATH=$HOME/go
-# export PATH=$PATH:$GOPATH/bin`
-#
-#`source ~/.profile`
+$STD cat <<EOF >> ~/.profile
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+EOF
+$STD source ~/.profile
 msg_ok "Installed GO"
 
 msg_info "Installing eebus-go-apps"
