@@ -38,6 +38,8 @@ msg_info "Installing GO"
 wget -q https://golang.org/dl/go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /opt/go1.23.6.linux-amd64.tar.gz
+#echo -e "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
+#source /etc/profile
 msg_ok "Installed GO"
 
 msg_info "Installing eebus-go-apps"
@@ -60,6 +62,10 @@ msg_info "Configuring syslog-ng"
 $STD cp -r /opt/eebus-go-apps/install/debian/syslog-ng/conf.d /etc/syslog-ng
 systemctl restart -q syslog-ng.service
 msg_ok "Configured syslog-ng"
+
+msg_info "Configuring go"
+$STD cp -r /opt/eebus-go-apps/install/debian/profile.d/* /etc/profile.d
+msg_ok "Configured go"
 
 motd_ssh
 customize
