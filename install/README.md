@@ -12,6 +12,8 @@
 
 ## Post installation tasks
 
+### Check installed dependencies
+
 - `sudo systemctl status syslog-ng`
 - `node -v`
 - `npm -v`
