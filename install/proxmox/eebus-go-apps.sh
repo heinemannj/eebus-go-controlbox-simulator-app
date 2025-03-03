@@ -31,9 +31,8 @@ function update_script() {
 
   $STD apt update -y
   $STD apt upgrade -y
-  $STD echo -e 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
-  #export PATH=$PATH:/usr/local/go/bin
-  $STD source ~/.profile
+  echo -e 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile
+  source /etc/profile
 
   msg_ok "Updated Successfully"
   exit
