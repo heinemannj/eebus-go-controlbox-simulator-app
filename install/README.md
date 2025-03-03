@@ -12,4 +12,8 @@
 
 ## Post installation tasks
 
-TBD
+- `sudo systemctl status syslog-ng`
+- `node -v`
+- `npm -v`
+- `go version`
+

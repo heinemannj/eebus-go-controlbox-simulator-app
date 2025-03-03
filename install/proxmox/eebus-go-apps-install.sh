@@ -38,7 +38,7 @@ msg_info "Installing GO"
 wget -q https://golang.org/dl/go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.6.linux-amd64.tar.gz
 $STD rm -rf /opt/go1.23.6.linux-amd64.tar.gz
-$STD export PATH=$PATH:/usr/local/go/bin
+$STD echo -e 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
 $STD source ~/.profile
 msg_ok "Installed GO"
 
