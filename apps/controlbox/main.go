@@ -147,6 +147,7 @@ func (h *controlbox) run() {
 			Bytes: certificate.Certificate[0],
 		})
 		fmt.Println(string(pemdata))
+		writeStringToFile("eebus-go-controlbox.crt", string(pemdata))
 
 		b, err := x509.MarshalECPrivateKey(certificate.PrivateKey.(*ecdsa.PrivateKey))
 		if err != nil {
@@ -154,6 +155,7 @@ func (h *controlbox) run() {
 		}
 		pemdata = pem.EncodeToMemory(&pem.Block{Type: "EC PRIVATE KEY", Bytes: b})
 		fmt.Println(string(pemdata))
+		writeStringToFile("eebus-go-controlbox.key", string(pemdata))
 	}
 
 	port, err := strconv.Atoi(os.Args[1])
@@ -742,5 +744,24 @@ func reader(h *controlbox, ws *websocket.Conn) {
 			log.Println(err)
 			return
 		}
+	}
+}
+
+// Create certificate file
+
+func writeStringToFile(fname string, pemdata string) {
+	f, err := os.Create(fname)
+	if err != nil {
+		log.Fatal(err)
+	}
+	l, err := f.WriteString(pemdata)
+	if err != nil {
+		log.Fatal(err)
+		f.Close()
+	}
+	fmt.Println(l, "bytes written to " + fname + " successfully")
+	err = f.Close()
+	if err != nil {
+		log.Fatal(err)
 	}
 }

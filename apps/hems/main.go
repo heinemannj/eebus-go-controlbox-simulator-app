@@ -69,6 +69,7 @@ func (h *hems) run() {
 			Bytes: certificate.Certificate[0],
 		})
 		fmt.Println(string(pemdata))
+		writeStringToFile("eebus-go-hems.crt", string(pemdata))
 
 		b, err := x509.MarshalECPrivateKey(certificate.PrivateKey.(*ecdsa.PrivateKey))
 		if err != nil {
@@ -76,6 +77,7 @@ func (h *hems) run() {
 		}
 		pemdata = pem.EncodeToMemory(&pem.Block{Type: "EC PRIVATE KEY", Bytes: b})
 		fmt.Println(string(pemdata))
+		writeStringToFile("eebus-go-hems.key", string(pemdata))
 	}
 
 	port, err := strconv.Atoi(os.Args[1])
@@ -460,4 +462,24 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 func publish(client mqtt.Client, topic string, msg string) {
   token := client.Publish(topic, 0, false, msg)
   token.Wait()
+}
+
+
+// Create certificate file
+
+func writeStringToFile(fname string, pemdata string) {
+	f, err := os.Create(fname)
+	if err != nil {
+		log.Fatal(err)
+	}
+	l, err := f.WriteString(pemdata)
+	if err != nil {
+		log.Fatal(err)
+		f.Close()
+	}
+	fmt.Println(l, "bytes written to " + fname + " successfully")
+	err = f.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
 }

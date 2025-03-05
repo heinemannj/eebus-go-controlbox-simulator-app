@@ -52,7 +52,7 @@ export PATH=$PATH:$GOPATH/bin`
 
 `cd ./eebus-go-apps/apps/controlbox`
 
-`go run main.go 4713`
+`go run main.go 4712`
 
 -----BEGIN CERTIFICATE-----
 MIIBxTCCAWugAwIBAgIRAUOdmAoF86StsXOkRLkhcRwwCgYIKoZIzj0EAwIwQjEL
@@ -73,12 +73,6 @@ AwEHoUQDQgAEctD8M8fQJ3MHJlvGUzBobYMHpdHIIyN0sH5wRM7QLiIYrMGCW7Uy
 qjczujIcP1J9mB+4Mx5MOve82yjCxWVuWQ==
 -----END EC PRIVATE KEY-----
 2025-02-15 15:03:41 INFO  Local SKI: 1d62acc78f3b713dfcf2c9a22c85feb53d526f9c
-
-
-
-`nano eebus-go-controlbox.crt`
-
-`nano eebus-go-controlbox.key`
 
 `go build`
 
@@ -155,10 +149,6 @@ ptZyqNPBzBXgFU8MUDSn8UEuML8cNZmwzQ==
 -----END EC PRIVATE KEY-----
 
 2025-02-23 14:05:26 INFO  Local SKI: 4ddb0acd51bf3e544f6cf4cb092e065d9648f8ca
-
-`nano eebus-go-hems.crt`
-
-`nano eebus-go-hems.key`
 
 `go build`
 
